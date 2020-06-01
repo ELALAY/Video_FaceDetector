@@ -28,6 +28,14 @@ video.addEventListener('play', () => {
         console.log(detections)
         const resizeDetections = faceapi.resisedResults(detections.displaySize)
         canvas.getContext('2D').clearRect(0, 0, canvas.width, canvas.height)
+        
+        //drawing a rectangle over the face
         faceapi.draw.drawDeections(canvas, resizeDetections)
+        
+        //drawing dots on the face lanmarks (mouth, eyes ...)
+        faceapi.draw.drawFaceLandmarks(canvas, resizeDetections)
+        
+        //making face expressions
+        faceapi.draw.drawFaceExpressions(canvas, resizeDetections)
     }, 100)
 })
