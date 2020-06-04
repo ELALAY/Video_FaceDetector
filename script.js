@@ -32,7 +32,15 @@ video.addEventListener('play', () => {
 
         canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
         
+        //draw the rect over the face
         faceapi.draw.drawDetections(canvas, resizedDetections)
+
+        //draw the landmarks with dots
+        //lanmarks are not accurately placed on the face
+        //faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
+
+        //detect the emotions
+        faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
     }, 100);
   
     
